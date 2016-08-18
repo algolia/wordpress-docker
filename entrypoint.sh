@@ -1,8 +1,10 @@
 #!/bin/bash
 set -eu
 
-if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
+if [ -f wp-config.php ]; then
+    echo >&2 "wp-config.php is already present. Database will not be overridden and files are kept as is."
 
+elif [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 
 	sleep 20
 	: ${WP_VERSION:=${WP_VERSION:-4.5.2}}

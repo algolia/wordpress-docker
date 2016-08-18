@@ -20,6 +20,13 @@ You should now be able to access the WordPress instance on `http://localhost` an
 Warning: copy(/var/www/html//wp-content/themes/twentyfourteen/category.php): failed to open stream: No such file or directory in phar:///bin/wp/php/commands/core.php on line 220
 ```
 
+## Launch environment without loosing database state
+
+If at some point you containers stopped and you don't want to loose your database state, simply run:
+```bash
+$ docker-composer up
+```
+
 ## Connect to the WordPress admin UI
 
 Go to [http://localhost/wp-admin/](http://localhost/wp-admin/)
