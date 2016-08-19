@@ -35,9 +35,6 @@ Admin user credentials:
 - login: admin
 - password: admin
 
-
-In the admin panel, you can now go to `plugins` and enable the `Algolia Search` plugin.
-
 ## Debugging
 
 The whole WordPress dir is mounted as a volume so that you can edit anything on the fly in `./wordpress`.
