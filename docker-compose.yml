@@ -7,7 +7,7 @@ wordpress:
   volumes:
     - ./wordpress:/var/www/html
   environment:
-    WP_VERSION: 4.5.3
+    WP_VERSION: 4.6.1
 
 db:
   image: mysql:5.5
