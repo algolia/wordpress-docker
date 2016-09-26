@@ -7,7 +7,7 @@ if [ -f wp-config.php ]; then
 elif [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 
 	sleep 20
-	: ${WP_VERSION:=${WP_VERSION:-4.5.2}}
+	: ${WP_VERSION:=${WP_VERSION:-4.6.1}}
 	: ${WP_DOMAIN:=${WP_DOMAIN:-localhost}}
 	: ${WP_URL:=${WP_URL:-http://localhost}}
 	: ${WP_LOCALE:=${WP_LOCALE:-en_US}}
@@ -33,6 +33,8 @@ elif [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 		exit 1
 	fi
 
+	wp cli --allow-root update --nightly --yes
+
 	# Download WordPress.
 	wp core --allow-root download \
 		--version=${WP_VERSION} \
@@ -49,7 +51,6 @@ elif [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 PHP
-
 
 	# Create the database.
 	wp db --allow-root create
