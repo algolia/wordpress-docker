@@ -3,7 +3,7 @@ set -eu
 
 # Store a backup of the current WordPress folder in case something goes wrong.
 timestamp=$(date +%s)
-cp -R wordpress backups/ ${timestamp}
+cp -R wordpress backups/${timestamp}
 
 # Clean the wordpress folder and keep the plugins & themes.
 rm -Rf ./tmp
