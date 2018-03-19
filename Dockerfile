@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:7.0-apache
 
 COPY php.ini /usr/local/etc/php/
 
@@ -7,7 +7,7 @@ RUN a2enmod rewrite expires
 # install the PHP extensions we need
 RUN apt-get update && apt-get install -y wget libpng12-dev libjpeg-dev mysql-client nano less && rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-	&& docker-php-ext-install gd mysql mysqli
+	&& docker-php-ext-install gd mysqli
 
 # blackfire agent
 RUN wget -O - https://packagecloud.io/gpg.key | apt-key add -
@@ -20,7 +20,7 @@ RUN curl -o /bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/pha
 	&& chmod +x /bin/wp \
 	&& wp --info --allow-root
 
-ENV WP_VERSION 4.5.2
+ENV WP_VERSION 4.9.4
 ENV TZ Europe/Paris
 
 COPY entrypoint.sh /entrypoint.sh
