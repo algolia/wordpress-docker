@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y wget libpng-dev libjpeg-dev gnupg mysql
 	&& docker-php-ext-install gd mysqli
 
 # blackfire agent
-RUN wget -O - https://packagecloud.io/gpg.key | apt-key add -
+RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add - 
 RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
 RUN apt-get update && apt-get install -y blackfire-agent blackfire-php
 
