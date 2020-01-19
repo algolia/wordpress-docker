@@ -8,9 +8,9 @@ wordpress:
     - ./wordpress:/var/www/html
   dns: 208.67.222.222
   environment:
-    WP_VERSION: 4.9.4
+    WP_VERSION: 5.3.2
 
 db:
-  image: mysql:latest
+  image: mysql:5.7
   environment:
     MYSQL_ROOT_PASSWORD: password

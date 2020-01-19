@@ -5,12 +5,12 @@ COPY php.ini /usr/local/etc/php/
 RUN a2enmod rewrite expires
 
 # install the PHP extensions we need
-RUN apt-get update && apt-get install -y wget libpng12-dev libjpeg-dev mysql-client nano less && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update && apt-get install -y wget libpng-dev libjpeg-dev gnupg mysql-client nano less && rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
 	&& docker-php-ext-install gd mysqli
 
 # blackfire agent
-RUN wget -O - https://packagecloud.io/gpg.key | apt-key add -
+RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add - 
 RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
 RUN apt-get update && apt-get install -y blackfire-agent blackfire-php
 
@@ -20,7 +20,7 @@ RUN curl -o /bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/pha
 	&& chmod +x /bin/wp \
 	&& wp --info --allow-root
 
-ENV WP_VERSION 4.9.4
+ENV WP_VERSION 5.3.2
 ENV TZ Europe/Paris
 
 COPY entrypoint.sh /entrypoint.sh
