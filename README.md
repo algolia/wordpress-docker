@@ -24,7 +24,7 @@ Warning: copy(/var/www/html//wp-content/themes/twentyfourteen/category.php): fai
 
 If at some point you containers stopped and you don't want to loose your database state, simply run:
 ```bash
-$ docker-composer up
+$ docker-compose up
 ```
 
 ## Connect to the WordPress admin UI
