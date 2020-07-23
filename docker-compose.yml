@@ -8,7 +8,7 @@ wordpress:
     - ./wordpress:/var/www/html
   dns: 208.67.222.222
   environment:
-    WP_VERSION: 5.3.2
+    WP_VERSION: 5.4.2
 
 db:
   image: mysql:5.7
