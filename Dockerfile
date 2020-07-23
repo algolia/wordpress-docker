@@ -20,7 +20,7 @@ RUN curl -o /bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/pha
 	&& chmod +x /bin/wp \
 	&& wp --info --allow-root
 
-ENV WP_VERSION 5.3.2
+ENV WP_VERSION 5.4.2
 ENV TZ Europe/Paris
 
 COPY entrypoint.sh /entrypoint.sh
