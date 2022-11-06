@@ -6,7 +6,7 @@ wordpress:
     - db:mysql
   volumes:
     - ./wordpress:/var/www/html
-  dns: 208.67.222.222
+  #dns: 208.67.222.222
   environment:
     WP_VERSION: 5.4.2
 
